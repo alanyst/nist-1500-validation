@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the ReportDetailLevel data type.</description>
+    <data_type>ReportDetailLevel</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>precinct-level</value>
+                <value>summary-contest</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>precinct level</value>
+                <value>SUMMARY-CONTEST</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

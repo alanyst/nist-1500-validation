@@ -1,0 +1,18 @@
+{
+  "description": "Tests for the ShortString data type.",
+  "data_type": "ShortString",
+  "tests": {
+    "length": {
+      "description": "Verifies that the value is no more than 32 characters long.",
+      "valid": [
+        "",
+        "a short string",
+        "01234567012345670123456701234567",
+        "                                "
+      ],
+      "invalid": [
+        "012345670123456701234567012345670"
+      ]
+    }
+  }
+}

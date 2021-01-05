@@ -1,0 +1,24 @@
+{
+  "description": "Tests for the ElectionType data type.",
+  "data_type": "ElectionType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "general",
+        "partisan-primary-closed",
+        "partisan-primary-open",
+        "primary",
+        "runoff",
+        "special",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "partisan primary closed",
+        "RUNOFF",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

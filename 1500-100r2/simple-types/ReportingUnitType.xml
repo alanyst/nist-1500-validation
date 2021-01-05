@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the ReportingUnitType data type.</description>
+    <data_type>ReportingUnitType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>ballot-batch</value>
+                <value>ballot-style-area</value>
+                <value>borough</value>
+                <value>city</value>
+                <value>city-council</value>
+                <value>combined-precinct</value>
+                <value>congressional</value>
+                <value>country</value>
+                <value>county</value>
+                <value>county-council</value>
+                <value>drop-box</value>
+                <value>judicial</value>
+                <value>municipality</value>
+                <value>polling-place</value>
+                <value>precinct</value>
+                <value>school</value>
+                <value>special</value>
+                <value>split-precinct</value>
+                <value>state</value>
+                <value>state-house</value>
+                <value>state-senate</value>
+                <value>town</value>
+                <value>township</value>
+                <value>utility</value>
+                <value>village</value>
+                <value>vote-center</value>
+                <value>ward</value>
+                <value>water</value>
+                <value>other</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>ballot batch</value>
+                <value>CITY</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

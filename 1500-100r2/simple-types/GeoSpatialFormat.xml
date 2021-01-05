@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the GeoSpatialFormat data type.</description>
+    <data_type>GeoSpatialFormat</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>geo-json</value>
+                <value>gml</value>
+                <value>kml</value>
+                <value>shp</value>
+                <value>wkt</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>geo json</value>
+                <value>KML</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

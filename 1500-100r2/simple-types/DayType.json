@@ -1,0 +1,27 @@
+{
+  "description": "Tests for the DayType data type.",
+  "data_type": "DayType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "all",
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "weekday",
+        "weekend"
+      ],
+      "invalid": [
+        "",
+        "Tuesday",
+        "SUNDAY",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

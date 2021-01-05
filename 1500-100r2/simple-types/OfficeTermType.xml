@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the OfficeTermType data type.</description>
+    <data_type>OfficeTermType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>full-term</value>
+                <value>unexpired-term</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>full term</value>
+                <value>UNEXPIRED-TERM</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

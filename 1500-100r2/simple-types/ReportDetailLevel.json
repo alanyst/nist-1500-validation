@@ -1,0 +1,19 @@
+{
+  "description": "Tests for the ReportDetailLevel data type.",
+  "data_type": "ReportDetailLevel",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "precinct-level",
+        "summary-contest"
+      ],
+      "invalid": [
+        "",
+        "precinct level",
+        "SUMMARY-CONTEST",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

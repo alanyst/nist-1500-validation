@@ -1,0 +1,19 @@
+{
+  "description": "Tests for the CandidatePreElectionStatus data type.",
+  "data_type": "CandidatePreElectionStatus",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "filed",
+        "qualified",
+        "withdrawn"
+      ],
+      "invalid": [
+        "",
+        "FILED",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

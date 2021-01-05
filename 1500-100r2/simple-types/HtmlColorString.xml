@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the HtmlColorString data type.</description>
+    <data_type>HtmlColorString</data_type>
+    <tests>
+        <test name="length">
+            <description>Verifies that the value is exactly six characters long.</description>
+            <valid>
+                <value>abcdef</value>
+                <value>012345</value>
+            </valid>
+            <invalid>
+                <value>0</value>
+                <value>12</value>
+                <value>345</value>
+                <value>6789</value>
+                <value>abcde</value>
+                <value>0123456</value>
+            </invalid>
+        </test>
+        <test name="hex-digits">
+            <description>Verifies that the value contains only hexadecimal digits, in lowercase.</description>
+            <valid>
+                <value>012345</value>
+                <value>6789ab</value>
+                <value>cdef01</value>
+            </valid>
+            <invalid>
+                <value>ABCDEF</value>
+                <value>ghijkl</value>
+                <value>  012 </value>
+                <value>012/34</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

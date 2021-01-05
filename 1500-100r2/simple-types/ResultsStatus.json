@@ -1,0 +1,23 @@
+{
+  "description": "Tests for the ResultsStatus data type.",
+  "data_type": "ResultsStatus",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "certified",
+        "correction",
+        "pre-election",
+        "recount",
+        "unofficial-complete",
+        "unofficial-partial"
+      ],
+      "invalid": [
+        "",
+        "pre election",
+        "CERTIFIED",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

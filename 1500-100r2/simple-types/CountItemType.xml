@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the CountItemType data type.</description>
+    <data_type>CountItemType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>absentee</value>
+                <value>absentee-fwab</value>
+                <value>absentee-in-person</value>
+                <value>absentee-mail</value>
+                <value>early</value>
+                <value>election-day</value>
+                <value>provisional</value>
+                <value>seats</value>
+                <value>total</value>
+                <value>uocava</value>
+                <value>write-in</value>
+                <value>other</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>absentee fwab</value>
+                <value>EARLY</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

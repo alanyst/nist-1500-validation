@@ -1,0 +1,130 @@
+{
+  "description": "Tests for the AnnotatedString data type.",
+  "data_type": "AnnotatedString",
+  "tests": {
+    "minimal-shape": {
+      "description": "Verifies the type with exactly the required properties present.",
+      "valid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": ""
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": "Arbitrary string content"
+        }
+      ],
+      "invalid": [
+        {
+          "Content": "Should fail because of missing @type tag."
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString"
+        }
+      ]
+    },
+    "maximal-shape": {
+      "description": "Verifies the type with all possible properties present.",
+      "valid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "Some annotation",
+          "Content": ""
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "And more",
+          "Content": "Arbitrary string content"
+        }
+      ]
+    },
+    "valid-type-tag": {
+      "description": "Verifies the correct type tag.",
+      "valid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": "whatever"
+        }
+      ],
+      "invalid": [
+        {
+          "@type": "ElectionResults.NonExistentType",
+          "Content": "whatever"
+        },
+        {
+          "@type": "arbitrary content",
+          "Content": "whatever"
+        },
+        {
+          "@type": "",
+          "Content": "whatever"
+        },
+        {
+          "@type": 3,
+          "Content": "whatever"
+        }
+      ]
+    },
+    "valid-annotation": {
+      "description": "Verifies the type of the Annotation property to be a valid ShortString.",
+      "valid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "",
+          "Content": ""
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "foo",
+          "Content": ""
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "01234567012345670123456701234567",
+          "Content": ""
+        }
+      ],
+      "invalid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "012345670123456701234567012345670",
+          "Content": ""
+        }
+      ]
+    },
+    "valid-content": {
+      "description": "Verifies that the content of the element is of the correct type.",
+      "valid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": ""
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": "Some content"
+        }
+      ],
+      "invalid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": 3
+        },
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Content": {}
+        }
+      ]
+    },
+    "no-unrecognized-properties": {
+      "description": "Verifies that only properties defined in the spec are accepted.",
+      "invalid": [
+        {
+          "@type": "ElectionResults.AnnotatedString",
+          "Annotation": "Something else",
+          "Content": "blah",
+          "UnrecognizedProperty": "is not valid"
+        }
+      ]
+    }
+  }
+}

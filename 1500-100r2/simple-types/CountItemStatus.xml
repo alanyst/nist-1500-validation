@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the CountItemStatus data type.</description>
+    <data_type>CountItemStatus</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>completed</value>
+                <value>in-process</value>
+                <value>not-processed</value>
+                <value>unknown</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>in process</value>
+                <value>COMPLETED</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

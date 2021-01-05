@@ -1,0 +1,176 @@
+{
+  "description": "Tests for the TimeWithZone data type.",
+  "data_type": "TimeWithZone",
+  "tests": {
+    "min-hour": {
+      "description": "Verifies the minimal hour value.",
+      "valid": [
+        "00:34:57Z"
+      ]
+    },
+    "max-hour": {
+      "description": "Verifies the maximal hour value.",
+      "valid": [
+        "23:34:57Z",
+        "24:00:00Z"
+      ],
+      "invalid": [
+        "25:00:00Z"
+      ]
+    },
+    "min-minute": {
+      "description": "Verifies the minimal minute value.",
+      "valid": [
+        "22:00:57Z"
+      ]
+    },
+    "max-minute": {
+      "description": "Verifies the maximal minute value.",
+      "valid": [
+        "22:59:57Z",
+        "24:00:00Z"
+      ],
+      "invalid": [
+        "22:60:57Z",
+        "24:01:00Z"
+      ]
+    },
+    "min-second": {
+      "description": "Verifies the minimal second value.",
+      "valid": [
+        "22:34:00Z"
+      ]
+    },
+    "max-second": {
+      "description": "Verifies the maximal second value.",
+      "valid": [
+        "22:34:59Z",
+        "24:00:00Z"
+      ],
+      "invalid": [
+        "2020-12-22T22:34:60Z",
+        "2020-12-22T24:00:01Z"
+      ]
+    },
+    "min-timezone-hour": {
+      "description": "Verifies the minimal time zone hour value.",
+      "valid": [
+        "22:34:57+00:30:00",
+        "22:34:57-00:30:00"
+      ]
+    },
+    "max-timezone-hour": {
+      "description": "Verifies the maximal time zone hour value.",
+      "valid": [
+        "22:34:57+13:30:00",
+        "22:34:57+14:00:00",
+        "22:34:57-13:30:00",
+        "22:34:57-14:00:00"
+      ],
+      "invalid": [
+        "22:34:57+15:00:00",
+        "22:34:57-15:00:00"
+      ]
+    },
+    "min-timezone-minute": {
+      "description": "Verifies the minimal time zone minute value.",
+      "valid": [
+        "22:34:57+07:00:00",
+        "22:34:57-07:00:00"
+      ]
+    },
+    "max-timezone-minute": {
+      "description": "Verifies the maximal time zone minute value.",
+      "valid": [
+        "22:34:57+07:59:00",
+        "22:34:57-07:59:00"
+      ],
+      "invalid": [
+        "22:34:57+07:60:00",
+        "22:34:57-07:60:00"
+      ]
+    },
+    "min-timezone-second": {
+      "description": "Verifies the minimal time zone second value.",
+      "valid": [
+        "22:34:57+07:30:00",
+        "22:34:57-07:30:00"
+      ]
+    },
+    "max-timezone-second": {
+      "description": "Verifies the maximal time zone second value.",
+      "valid": [
+        "22:34:57+07:30:59",
+        "22:34:57-07:30:59"
+      ],
+      "invalid": [
+        "22:34:57+07:30:60",
+        "22:34:57-07:30:60"
+      ]
+    },
+    "max-timezone-combo": {
+      "description": "Verifies the maximal combined time zone value.",
+      "valid": [
+        "22:34:57-14:00:00",
+        "22:34:57+14:00:00"
+      ],
+      "invalid": [
+        "22:34:57+14:00:01",
+        "22:34:57-14:00:01",
+        "22:34:57+14:01:00",
+        "22:34:57-14:01:00"
+      ]
+    },
+    "separators": {
+      "description": "Verifies the correct separators.",
+      "valid": [
+        "22:34:57Z",
+        "22:34:57-06:00:00",
+        "22:34:57+06:00:00"
+      ],
+      "invalid": [
+        "22 34:57Z",
+        "22:34 57Z",
+        "22:34:57 06:00:00",
+        "22:34:57+06 00:00",
+        "22:34:57+06:00 00"
+      ]
+    },
+    "missing-components": {
+      "description": "Verifies that no component is missing.",
+      "invalid": [
+        ":34:57Z",
+        ":34:57+06:00:00",
+        "22::57Z",
+        "22::57+06:00:00",
+        "22:34Z",
+        "22:34:57",
+        "22:34+06:00:00",
+        "22:34:57+:30:00",
+        "22:34:57-:30:00",
+        "22:34:57+06::00",
+        "22:34:57-06::00",
+        "22:34:57+06:30:",
+        "22:34:57-06:30:"
+      ]
+    },
+    "no-prefix-or-suffix": {
+      "description": "Verifies no matching of prefixed or suffixed characters.",
+      "invalid": [
+        "a22:34:57Z",
+        " 22:34:57Z",
+        "\n22:34:57Z",
+        "22:34:57Za",
+        "22:34:57Z ",
+        "22:34:57Z\n"
+      ]
+    },
+    "restricted-aspects-of-xsd-time": {
+      "description": "Verifies that time zone is required and fractional seconds are not supported.",
+      "invalid": [
+        "22:34:57.935Z",
+        "22:34:57"
+      ]
+    }
+  }
+}

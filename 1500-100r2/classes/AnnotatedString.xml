@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the AnnotatedString data type.</description>
+    <data_type>AnnotatedString</data_type>
+    <tests>
+        <test name="minimal-shape">
+            <description>Verifies the type with exactly the required properties present.</description>
+            <valid>
+                <value><AnnotatedString/></value>
+                <value><AnnotatedString>Arbitrary string content</AnnotatedString></value>
+            </valid>
+        </test>
+        <test name="maximal-shape">
+            <description>Verifies the type with all possible properties present.</description>
+            <valid>
+                <value><AnnotatedString Annotation="Some annotation" /></value>
+                <value><AnnotatedString Annotation="And more">Arbitrary string content</AnnotatedString> </value>
+            </valid>
+        </test>
+        <test name="valid-annotation">
+            <description>Verifies the type of the Annotation property to be a valid ShortString.</description>
+            <valid>
+                <value><AnnotatedString Annotation=""/></value>
+                <value><AnnotatedString Annotation="foo"/></value>
+                <value><AnnotatedString Annotation="01234567012345670123456701234567"/></value>
+            </valid>
+            <invalid>
+                <value><AnnotatedString Annotation="012345670123456701234567012345670"/></value>
+            </invalid>
+        </test>
+        <test name="valid-content">
+            <description>Verifies that the content of the element is of the correct type.</description>
+            <valid>
+                <value><AnnotatedString /></value>
+                <value><AnnotatedString>Some content</AnnotatedString></value>
+            </valid>
+            <invalid>
+                <value><AnnotatedString><IllegalElement/></AnnotatedString></value>
+            </invalid>
+        </test>
+        <test name="no-unrecognized-properties">
+            <description>Verifies that only properties defined in the spec are accepted.</description>
+            <invalid>
+                <value><AnnotatedString Annotation="foo" NonExistentAttribute="bar"/></value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

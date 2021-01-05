@@ -1,0 +1,46 @@
+{
+  "description": "Tests for the ReportingUnitType data type.",
+  "data_type": "ReportingUnitType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "ballot-batch",
+        "ballot-style-area",
+        "borough",
+        "city",
+        "city-council",
+        "combined-precinct",
+        "congressional",
+        "country",
+        "county",
+        "county-council",
+        "drop-box",
+        "judicial",
+        "municipality",
+        "polling-place",
+        "precinct",
+        "school",
+        "special",
+        "split-precinct",
+        "state",
+        "state-house",
+        "state-senate",
+        "town",
+        "township",
+        "utility",
+        "village",
+        "vote-center",
+        "ward",
+        "water",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "ballot batch",
+        "CITY",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

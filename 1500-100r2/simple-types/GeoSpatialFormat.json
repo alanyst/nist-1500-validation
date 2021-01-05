@@ -1,0 +1,22 @@
+{
+  "description": "Tests for the GeoSpatialFormat data type.",
+  "data_type": "GeoSpatialFormat",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "geo-json",
+        "gml",
+        "kml",
+        "shp",
+        "wkt"
+      ],
+      "invalid": [
+        "",
+        "geo json",
+        "KML",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

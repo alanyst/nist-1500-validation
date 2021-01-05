@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the ElectionType data type.</description>
+    <data_type>ElectionType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>general</value>
+                <value>partisan-primary-closed</value>
+                <value>partisan-primary-open</value>
+                <value>primary</value>
+                <value>runoff</value>
+                <value>special</value>
+                <value>other</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>partisan primary closed</value>
+                <value>RUNOFF</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

@@ -1,0 +1,22 @@
+{
+  "description": "Tests for the BallotMeasureType data type.",
+  "data_type": "BallotMeasureType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "ballot-measure",
+        "initiative",
+        "recall",
+        "referendum",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "ballot measure",
+        "OTHER",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Tests for the CandidatePostElectionStatus data type.",
+  "data_type": "CandidatePostElectionStatus",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "advanced-to-runoff",
+        "defeated",
+        "projected-winner",
+        "winner",
+        "withdrawn"
+      ],
+      "invalid": [
+        "",
+        "projected winner",
+        "WINNER",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

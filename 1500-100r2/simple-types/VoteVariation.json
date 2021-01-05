@@ -1,0 +1,28 @@
+{
+  "description": "Tests for the VoteVariation data type.",
+  "data_type": "VoteVariation",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "approval",
+        "borda",
+        "cumulative",
+        "majority",
+        "n-of-m",
+        "plurality",
+        "proportional",
+        "range",
+        "rcv",
+        "super-majority",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "n of m",
+        "APPROVAL",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

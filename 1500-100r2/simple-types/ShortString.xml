@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the ShortString data type.</description>
+    <data_type>ShortString</data_type>
+    <tests>
+        <test name="length">
+            <description>Verifies that the value is no more than 32 characters long.</description>
+            <valid>
+                <value><!-- the empty string --></value>
+                <value>a short string</value>
+                <value>01234567012345670123456701234567</value>
+            </valid>
+            <invalid>
+                <value>012345670123456701234567012345670</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the DayType data type.</description>
+    <data_type>DayType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>all</value>
+                <value>sunday</value>
+                <value>monday</value>
+                <value>tuesday</value>
+                <value>wednesday</value>
+                <value>thursday</value>
+                <value>friday</value>
+                <value>saturday</value>
+                <value>weekday</value>
+                <value>weekend</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>Tuesday</value>
+                <value>SUNDAY</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

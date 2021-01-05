@@ -1,0 +1,24 @@
+{
+  "description": "Tests for the DeviceType data type.",
+  "data_type": "DeviceType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "bmd",
+        "dre",
+        "manual-count",
+        "opscan-central",
+        "opscan-precinct",
+        "unknown",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "manual count",
+        "BMD",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

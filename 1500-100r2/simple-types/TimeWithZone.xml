@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the TimeWithZone data type.</description>
+    <data_type>TimeWithZone</data_type>
+    <tests>
+        <test name="min-hour">
+            <description>Verifies the minimal hour value.</description>
+            <valid>
+                <value>00:34:57Z</value>
+            </valid>
+        </test>
+        <test name="max-hour">
+            <description>Verifies the maximal hour value.</description>
+            <valid>
+                <value>23:34:57Z</value>
+                <value>24:00:00Z</value>
+            </valid>
+            <invalid>
+                <value>25:00:00Z</value>
+            </invalid>
+        </test>
+        <test name="min-minute">
+            <description>Verifies the minimal minute value.</description>
+            <valid>
+                <value>22:00:57Z</value>
+            </valid>
+        </test>
+        <test name="max-minute">
+            <description>Verifies the maximal minute value.</description>
+            <valid>
+                <value>22:59:57Z</value>
+                <value>24:00:00Z</value>
+            </valid>
+            <invalid>
+                <value>22:60:57Z</value>
+                <value>24:01:00Z</value>
+            </invalid>
+        </test>
+        <test name="min-second">
+            <description>Verifies the minimal second value.</description>
+            <valid>
+                <value>22:34:00Z</value>
+            </valid>
+        </test>
+        <test name="max-second">
+            <description>Verifies the maximal second value.</description>
+            <valid>
+                <value>22:34:59Z</value>
+                <value>24:00:00Z</value>
+            </valid>
+            <invalid>
+                <value>22:34:60Z</value>
+                <value>24:00:01Z</value>
+            </invalid>
+        </test>
+        <test name="min-timezone-hour">
+            <description>Verifies the minimal time zone hour value.</description>
+            <valid>
+                <value>22:34:57+00:30:00</value>
+                <value>22:34:57-00:30:00</value>
+            </valid>
+        </test>
+        <test name="max-timezone-hour">
+            <description>Verifies the maximal time zone hour value.</description>
+            <valid>
+                <value>22:34:57+13:30:00</value>
+                <value>22:34:57+14:00:00</value>
+                <value>22:34:57-13:30:00</value>
+                <value>22:34:57-14:00:00</value>
+            </valid>
+            <invalid>
+                <value>22:34:57+15:00:00</value>
+                <value>22:34:57-15:00:00</value>
+            </invalid>
+        </test>
+        <test name="min-timezone-minute">
+            <description>Verifies the minimal time zone minute value.</description>
+            <valid>
+                <value>22:34:57+07:00:00</value>
+                <value>22:34:57-07:00:00</value>
+            </valid>
+        </test>
+        <test name="max-timezone-minute">
+            <description>Verifies the maximal time zone minute value.</description>
+            <valid>
+                <value>22:34:57+07:59:00</value>
+                <value>22:34:57-07:59:00</value>
+            </valid>
+            <invalid>
+                <value>22:34:57+07:60:00</value>
+                <value>22:34:57-07:60:00</value>
+            </invalid>
+        </test>
+        <test name="min-timezone-second">
+            <description>Verifies the minimal time zone second value.</description>
+            <valid>
+                <value>22:34:57+07:30:00</value>
+                <value>22:34:57-07:30:00</value>
+            </valid>
+        </test>
+        <test name="max-timezone-second">
+            <description>Verifies the maximal time zone second value.</description>
+            <valid>
+                <value>22:34:57+07:30:59</value>
+                <value>22:34:57-07:30:59</value>
+            </valid>
+            <invalid>
+                <value>22:34:57+07:30:60</value>
+                <value>22:34:57-07:30:60</value>
+            </invalid>
+        </test>
+        <test name="max-timezone-combo">
+            <description>Verifies the maximal combined time zone value.</description>
+            <valid>
+                <value>22:34:57-14:00:00</value>
+                <value>22:34:57+14:00:00</value>
+            </valid>
+            <invalid>
+                <value>22:34:57+14:00:01</value>
+                <value>22:34:57-14:00:01</value>
+                <value>22:34:57+14:01:00</value>
+                <value>22:34:57-14:01:00</value>
+            </invalid>
+        </test>
+        <test name="separators">
+            <description>Verifies the correct separators.</description>
+            <valid>
+                <value>22:34:57Z</value>
+                <value>22:34:57-06:00:00</value>
+                <value>22:34:57+06:00:00</value>
+            </valid>
+            <invalid>
+                <value>22 34:57Z</value>
+                <value>22:34 57Z</value>
+                <value>22:34:57 06:00:00</value>
+                <value>22:34:57+06 00:00</value>
+                <value>22:34:57+06:00 00</value>
+            </invalid>
+        </test>
+        <test name="missing-components">
+            <description>Verifies that no component is missing.</description>
+            <invalid>
+                <value>:34:57Z</value>
+                <value>:34:57+06:00:00</value>
+                <value>22::57Z</value>
+                <value>22::57+06:00:00</value>
+                <value>22:34Z</value>
+                <value>22:34:57</value>
+                <value>22:34+06:00:00</value>
+                <value>22:34:57+:30:00</value>
+                <value>22:34:57-:30:00</value>
+                <value>22:34:57+06::00</value>
+                <value>22:34:57-06::00</value>
+                <value>22:34:57+06:30:</value>
+                <value>22:34:57-06:30:</value>
+            </invalid>
+        </test>
+        <test name="no-prefix-or-suffix">
+            <description>Verifies no matching of prefixed or suffixed characters.</description>
+            <invalid>
+                <value>a22:34:57Z</value>
+                <value> 22:34:57Z</value>
+                <value><![CDATA[
+22:34:57Z]]></value>
+                <value>22:34:57Za</value>
+                <value>22:34:57Z </value>
+                <value><![CDATA[22:34:57Z
+]]></value>
+            </invalid>
+        </test>
+        <test name="restricted-aspects-of-xsd-time">
+            <description>Verifies that time zone is required and fractional seconds are not supported.</description>
+            <invalid>
+                <value>22:34:57.935Z</value>
+                <value>22:34:57</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

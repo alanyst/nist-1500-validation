@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the ResultsStatus data type.</description>
+    <data_type>ResultsStatus</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>certified</value>
+                <value>correction</value>
+                <value>pre-election</value>
+                <value>recount</value>
+                <value>unofficial-complete</value>
+                <value>unofficial-partial</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>pre election</value>
+                <value>CERTIFIED</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

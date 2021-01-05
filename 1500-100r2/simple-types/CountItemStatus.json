@@ -1,0 +1,21 @@
+{
+  "description": "Tests for the CountItemStatus data type.",
+  "data_type": "CountItemStatus",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "completed",
+        "in-process",
+        "not-processed",
+        "unknown"
+      ],
+      "invalid": [
+        "",
+        "in process",
+        "COMPLETED",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

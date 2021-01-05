@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation_suite>
+    <description>Tests for the BallotMeasureType data type.</description>
+    <data_type>BallotMeasureType</data_type>
+    <tests>
+        <test name="set-membership">
+            <description>Verifies that the value is in the enumerated set.</description>
+            <valid>
+                <value>ballot-measure</value>
+                <value>initiative</value>
+                <value>recall</value>
+                <value>referendum</value>
+                <value>other</value>
+            </valid>
+            <invalid>
+                <value><!-- the empty string --></value>
+                <value>ballot measure</value>
+                <value>OTHER</value>
+                <value>some-arbitrary-value</value>
+            </invalid>
+        </test>
+    </tests>
+</validation_suite>

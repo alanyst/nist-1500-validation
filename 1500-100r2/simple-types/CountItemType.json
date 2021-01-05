@@ -1,0 +1,29 @@
+{
+  "description": "Tests for the CountItemType data type.",
+  "data_type": "CountItemType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "absentee",
+        "absentee-fwab",
+        "absentee-in-person",
+        "absentee-mail",
+        "early",
+        "election-day",
+        "provisional",
+        "seats",
+        "total",
+        "uocava",
+        "write-in",
+        "other"
+      ],
+      "invalid": [
+        "",
+        "absentee fwab",
+        "EARLY",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

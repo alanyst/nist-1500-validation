@@ -1,0 +1,19 @@
+{
+  "description": "Tests for the OfficeTermType data type.",
+  "data_type": "OfficeTermType",
+  "tests": {
+    "set-membership": {
+      "description": "Verifies that the value is in the enumerated set.",
+      "valid": [
+        "full-term",
+        "unexpired-term"
+      ],
+      "invalid": [
+        "",
+        "full term",
+        "UNEXPIRED-TERM",
+        "some-arbitrary-value"
+      ]
+    }
+  }
+}

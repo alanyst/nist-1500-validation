@@ -1,0 +1,35 @@
+{
+  "description": "Tests for the HtmlColorString data type.",
+  "data_type": "HtmlColorString",
+  "tests": {
+    "length": {
+      "description": "Verifies that the value is exactly six characters long.",
+      "valid": [
+        "abcdef",
+        "012345"
+      ],
+      "invalid": [
+        "0",
+        "12",
+        "345",
+        "6789",
+        "abcde",
+        "0123456"
+      ]
+    },
+    "hex-digits": {
+      "description": "Verifies that the value contains only hexadecimal digits, in lowercase.",
+      "valid": [
+        "012345",
+        "6789ab",
+        "cdef01"
+      ],
+      "invalid": [
+        "ABCDEF",
+        "ghijkl",
+        "  012 ",
+        "012/34"
+      ]
+    }
+  }
+}
